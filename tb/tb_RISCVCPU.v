@@ -189,10 +189,6 @@ module tb_RISCVCPU;
         begin
             errors = 0;
 
-            $display("\n==============================");
-            $display("CHECK EXPECTED RESULTS");
-            $display("==============================");
-
             if (cpu.Regs[1] !== 32'd10) begin
                 $display("FAIL: x1 expected 10, got %0d", cpu.Regs[1]);
                 errors = errors + 1;
@@ -233,14 +229,9 @@ module tb_RISCVCPU;
                 errors = errors + 1;
             end
 
-            if (errors == 0) begin
-                $display("PASS: all expected results match.");
-            end
-            else begin
+            if (errors != 0) begin
                 $display("FAIL: %0d error(s) found.", errors);
             end
-
-            $display("==============================\n");
         end
     endtask
 
